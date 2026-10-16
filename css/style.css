@@ -1,0 +1,319 @@
+/* ============================================================
+   用户注册页面  style.css
+   知识点：盒模型、浮动/弹性布局、表单样式、伪类、过渡
+   ============================================================ */
+
+/* ---------- 1. 全局重置 ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "微软雅黑", "Microsoft YaHei", "宋体", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #eef2f7;
+}
+
+a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+em {
+    color: #e74c3c;
+    font-style: normal;
+}
+
+/* ---------- 2. 顶部标题栏 ---------- */
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+    width: 1000px;
+    max-width: 94%;
+    margin: 0 auto;
+    height: 62px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a73e8;;
+    letter-spacing: 1px;
+}
+
+.header-right {
+    font-size: 13px;
+    color: #888;
+}
+
+.link-login {
+    margin-left: 6px;
+    font-weight: bold;
+}
+
+/* ---------- 3. 主体区 ---------- */
+.main {
+    padding: 34px 0 46px;
+}
+
+.register-box {
+    width: 820px;
+    max-width: 94%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    padding: 34px 46px 40px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #222;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #999;
+    text-align: center;
+    margin: 8px 0 6px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+/* ---------- 4. 分组小标题 ---------- */
+.group-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1a73e8;
+    margin: 24px 0 4px;
+    padding-left: 10px;
+    border-left: 4px solid #1a73e8;
+    line-height: 1.2;
+}
+
+/* ---------- 5. 表单项 ---------- */
+.form-item {
+    margin-top: 16px;
+}
+
+/* 表单控件的公共样式：用并集选择器统一处理 */
+.form-item input[type="text"],
+.form-item input[type="password"],
+.form-item input[type="email"],
+.form-item input[type="tel"],
+.form-item input[type="date"],
+.form-item select,
+.form-item textarea {
+    width: 100%;
+    padding: 10px 13px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #333;
+    background-color: #fafbfc;
+    border: 1px solid #d8dee6;
+    border-radius: 6px;
+    outline: none;
+    transition: all 0.25s;
+}
+
+/* 鼠标点进去的时候：边框变蓝 + 淡淡的蓝光 */
+.form-item input[type="text"]:focus,
+.form-item input[type="password"]:focus,
+.form-item input[type="email"]:focus,
+.form-item input[type="tel"]:focus,
+.form-item input[type="date"]:focus,
+.form-item select:focus,
+.form-item textarea:focus {
+    background-color: #fff;
+    border-color: #1a73e8;
+    box-shadow:  0 0 0 3px rgba(26, 115, 232, 0.12);
+}
+
+.form-item textarea {
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.form-item select {
+    cursor: pointer;
+}
+
+/* ---------- 6. 标签 ---------- */
+.form-item > label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* ---------- 7. 单选 / 复选组 ---------- */
+.radio-group,
+.check-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding: 4px 0 2px;
+}
+
+.radio,
+.check {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+}
+
+.radio input,
+.check input {
+    margin-right: 6px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    accent-color: #1a73e8;
+}
+
+/* ---------- 8. 文件域 ---------- */
+.form-item input[type="file"] {
+    width: 100%;
+    padding: 8px 10px;
+    font-family: inherit;
+    font-size: 13px;
+    color: #666;
+    background-color: #fafbfc;
+    border: 1px dashed #c8d2de;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.form-item input[type="file"]:hover {
+    border-color: #1a73e8;
+    background-color: #f4f8ff;
+}
+
+/* ---------- 9. 错误提示文字 ---------- */
+.tip {
+    display: block;
+    font-size: 12px;
+    color: #e74c3c;
+    line-height: 1.5;
+    padding-top: 4px;
+    min-height: 0;
+}
+
+.tip.ok {
+    color: #27ae60;
+}
+
+/* 出错时给输入框套一圈红边 */
+.form-item input.error,
+.form-item select.error,
+.form-item textarea.error {
+    border-color: #e74c3c;
+    background-color: #fff7f7;
+}
+
+/* ---------- 10. 协议 ---------- */
+.agree-item {
+    margin-top: 22px;
+}
+
+.agree {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #666;
+    cursor: pointer;
+}
+
+.agree input {
+    margin-right: 7px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    accent-color: #1a73e8;
+}
+
+/* ---------- 11. 按钮 ---------- */
+.btn-group {
+    display: flex;
+    gap: 14px;
+    margin-top: 26px;
+}
+
+.btn {
+    flex: 1;
+    height: 44px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.btn-submit {
+    color: #fff;
+    background-color: #1a73e8;
+}
+
+.btn-submit:hover {
+    background-color: #1558b8;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.32);
+}
+
+.btn-reset {
+    color: #666;
+    background-color: #eef2f7;
+}
+
+.btn-reset:hover {
+    background-color: #e0e6ee;
+}
+
+/* ---------- 12. 页脚 ---------- */
+.footer {
+    padding: 22px 0 30px;
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+}
+
+/* ---------- 13. 响应式：小屏幕改成单列 ---------- */
+@media screen and (max-width: 640px) {
+    .register-box {
+        padding: 26px 22px 30px;
+    }
+
+    .title {
+        font-size: 21px;
+    }
+
+    .radio-group,
+    .check-group {
+        gap: 14px;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

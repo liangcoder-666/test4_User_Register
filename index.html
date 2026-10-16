@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==================== 顶部标题栏 ==================== -->
+    <div class="header">
+        <div class="header-inner">
+            <a href="#" class="logo" >校园服务平台</a>
+            <div class="header-right">
+                <span>已有账号？</span>
+                <a href="#" class="link-login">立即登录</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 注册表单主体 ==================== -->
+    <div class="main">
+        <div class="register-box">
+
+            <h1 class="title">用户注册</h1>
+            <p class="subtitle">带 <em>*</em> 的为必填项，请如实填写</p>
+
+            <form id="regForm" action="#" method="post">
+
+                <!-- ---------- 1. 账号信息 ---------- -->
+                <h2 class="group-title">账号信息</h2>
+
+                <div class="form-item">
+                    <label for="username">用户名 <em>*</em></label>
+                    <input type="text" id="username" name="username"
+                            placeholder="4-16位字母、数字或下划线"  maxlength="16" autocomplete="off">
+                    <span class="tip" id="tipUsername"></span>
+                </div>
+
+                <div class="form-item">
+                    <label for="password">密码 <em>*</em></label>
+                    <input type="password" id="password" name="password"
+                           placeholder="6-16位，建议字母加数字" maxlength="16">
+                    <span class="tip" id="tipPassword"></span>
+                </div>
+
+                <div class="form-item">
+                    <label for="repassword">确认密码 <em>*</em></label>
+                    <input type="password" id="repassword" name="repassword"
+                           placeholder="请再输入一次密码" maxlength="16" >
+                    <span class="tip" id="tipRepassword"></span>
+                </div>
+
+                <!-- ---------- 2. 联系方式 ---------- -->
+                <h2 class="group-title">联系方式</h2>
+
+                <div class="form-item">
+                    <label for="email">电子邮箱 <em>*</em></label>
+                    <input type="email" id="email" name="email"
+                           placeholder="例如：student@jou.edu.cn">
+                    <span class="tip" id="tipEmail"></span>
+                </div>
+
+                <div class="form-item">
+                    <label for="phone">手机号码 <em>*</em></label>
+                    <input type="tel" id="phone" name="phone"
+                           placeholder="11位手机号" maxlength="11">
+                    <span class="tip" id="tipPhone"></span>
+                </div>
+
+                <!-- ---------- 3. 基本信息 ---------- -->
+                <h2 class="group-title">基本信息</h2>
+
+                <div class="form-item">
+                    <label>性别 <em>*</em></label>
+                    <div class="radio-group">
+                        <label class="radio"><input type="radio" name="gender" value="男" checked>男</label>
+                        <label class="radio"><input type="radio" name="gender" value="女">女</label>
+                        <label class="radio"><input type="radio" name="gender" value="保密">保密</label>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label for="birthday">出生日期</label>
+                    <input type="date" id="birthday" name="birthday">
+                </div>
+
+                <div class="form-item">
+                    <label for="city">所在城市</label>
+                    <select id="city" name="city">
+                        <option value="">-- 请选择 --</option>
+                        <optgroup label="江苏省">
+                            <option value="南京">南京</option>
+                            <option value="苏州">苏州</option>
+                            <option value="连云港" selected>连云港</option>
+                        </optgroup>
+                        <optgroup label="其它">
+                            <option value="北京">北京</option>
+                            <option value="上海">上海</option>
+                            <option value="广州">广州</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-item">
+                    <label>兴趣爱好</label>
+                    <div class="check-group">
+                        <label class="check"><input type="checkbox" name="hobby" value="编程">编程</label>
+                        <label class="check"><input type="checkbox" name="hobby" value="篮球">篮球</label>
+                        <label class="check"><input type="checkbox" name="hobby" value="音乐">音乐</label>
+                        <label class="check"><input type="checkbox" name="hobby" value="旅行">旅行</label>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label for="avatar">头像</label>
+                    <input type="file" id="avatar" name="avatar" accept="image/*">
+                </div>
+
+                <div class="form-item">
+                    <label for="intro">个人简介</label>
+                    <textarea id="intro" name="intro" rows="4"
+                              placeholder="简单介绍一下自己（不超过 100 字）" maxlength="100"></textarea>
+                </div>
+
+                <!-- ---------- 4. 协议与按钮 ---------- -->
+                <div class="form-item agree-item">
+                    <label class="agree">
+                        <input type="checkbox" id="agree" name="agree">
+                        我已阅读并同意<a href="#">《用户服务协议》</a>
+                    </label>
+                    <span class="tip" id="tipAgree"></span>
+                </div>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-submit">立即注册</button>
+                    <button type="reset" class="btn btn-reset">重置</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- ==================== 页脚 ==================== -->
+    <div class="footer">
+        <p>校园服务平台 &copy; 2026 &nbsp;|&nbsp; 江苏海洋大学计算机工程学院</p>
+    </div>
+
+    <script src="js/validate.js"></script>
+</body>
+</html>
